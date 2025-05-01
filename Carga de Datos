@@ -1,0 +1,13 @@
+import pandas a s pd
+from sklearn.modelselection import traintestsplit
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+df = pd.readcsv( ’Crop recommendationV2.csv’)
+l e = LabelEncoder ( )
+df [ ’label’ ] = le.fittransform ( df [ ’label ’ ] )
+X = df.drop ( ’label’ ,axis =1)
+y = df [ ’label’ ]
+scaler=StandardScaler()
+X scaled =scaler.fittransform(X)
+X train , Xtest,ytrain,ytest = traintestsplit (
+X scaled,y,testsize =0.2 , randomstate=42
+)
